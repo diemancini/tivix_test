@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h5 class="card-title">List Students</h5>
+{% if students_list|length > 0 %}
+    <p class="card-text">
+      Here is the list of the <code>Students</code>.
+    </p>
+    <table class="table">
+      <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+          </tr>
+      </thead>
+
+      <tbody>
+      {% for student in students_list %}
+        <tr>
+          <td>{{ student.fields.name }}</td>
+          <td>
+            <a href="{% url 'students_edit' pk=student.pk %}"
+               class="btn btn-info">
+              Edit
+            </a>
+            <form method="POST" action="{% url 'students_delete' pk=student.pk %}" style="display: inline;">{% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+<!--            <a href="{% url 'students_delete' pk=student.pk %}"-->
+<!--              class="btn btn-danger" data-method="post">{% csrf_token %}-->
+<!--                Delete-->
+<!--            </a>-->
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+{% else %}
+  <div class="text-center mt-5 mb-5 jumbotron">
+    <h5>There is no <code>Students</code> subscribed yet.</h5>
+  </div>
+{% endif %}
+<div class="text-right">
+    <a href="{% url 'students_add' %}" class="btn btn-primary">
+      Subscribe Student
+    </a>
+</div>
+
+
+{% endblock %}
+

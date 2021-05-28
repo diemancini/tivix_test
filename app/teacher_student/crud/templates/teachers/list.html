@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+   <h5 class="card-title">List of Teachers</h5>
+{% if teachers_list|length > 0 %}
+    <p class="card-text">
+      Here is the list of the <code>Teachers</code>.
+    </p>
+    <table class="table">
+      <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+          </tr>
+      </thead>
+
+      <tbody>
+      {% for teacher in teachers_list %}
+        <tr>
+          <td>{{ teacher.fields.name }}</td>
+          <td>
+            <a href="{% url 'teachers_edit' pk=teacher.pk %}"
+               class="btn btn-info">
+              Edit
+            </a>
+            <form method="POST" action="{% url 'teachers_delete' pk=teacher.pk %}" style="display: inline;">{% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+{% else %}
+  <div class="text-center mt-5 mb-5 jumbotron">
+    <h5>There is no <code>Students</code> subscribed yet.</h5>
+  </div>
+{% endif %}
+<div class="text-right">
+    <a href="{% url 'teachers_add' %}" class="btn btn-primary">
+      Subscribe Teacher
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h5 class="card-title">Subscribe Student</h5>
+    <p class="card-text">
+        Complete the form below
+        to subscribe a new <code>Student</code>.
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name</span>
+            </div>
+            {% render_field form.name class+="form-control" %}
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Choice a teacher</span>
+            </div>
+            {% render_field form.add_teacher %}
+        </div>
+
+        <button class="btn btn-primary">Enviar</button>
+    </form>
+
+{% endblock %}

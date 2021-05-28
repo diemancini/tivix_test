@@ -2,7 +2,8 @@ from django.db import models
 
 
 class Teachers(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
+    #students = models.ManyToManyField('Students', null=True)
 
     class Meta:
         ordering = ['name']
@@ -22,7 +23,7 @@ class Stars(models.Model):
 
 
 class Students(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     # stars = models.ForeignKey('Teachers',
     #                           on_delete=models.CASCADE,
     #                           null=True,
