@@ -3,38 +3,25 @@ from django.db import models
 
 class Teachers(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    #students = models.ManyToManyField('Students', null=True)
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
-
-
-class Stars(models.Model):
-    teachers = models.ForeignKey('Teachers', on_delete=models.CASCADE, null=True)
-
-    class Meta:
-        ordering = ['teachers']
-
-    def __str__(self):
-        return self.teachers
 
 
 class Students(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    # stars = models.ForeignKey('Teachers',
-    #                           on_delete=models.CASCADE,
-    #                           null=True,
-    #                           related_name="teachers",
-    #                           related_query_name="teacher")
-    stars = models.ManyToManyField(Stars, null=True)
     teachers = models.ManyToManyField(Teachers, null=True)
+    stars = models.ManyToManyField(
+        Teachers,
+        related_name="teachers",
+        related_query_name="stars",
+        null=True)
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
-

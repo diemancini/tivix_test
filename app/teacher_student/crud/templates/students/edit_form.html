@@ -1,37 +1,25 @@
-{% extends 'base/base.html' %}
+{% extends 'base/edit.html' %}
 {% load widget_tweaks %}
 
-{% block content %}
+{% block form_edit %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Edit Student</h5>
-          <p class="card-text">
-            Edit the <code>Student</code>  form below:
-          </p>
-          <form method="post">
-            {% csrf_token %}
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Name</span>
-              </div>
-              {% render_field form.name class+="form-control" %}
-              <div class="input-group-prepend">
-                <span class="input-group-text">Choice a teacher</span>
-              </div>
-              {% render_field form.add_teacher %}
-            </div>
-
-            <button class="btn btn-primary">Send</button>
-          </form>
-        </div>
-      </div>
+<form method="post">
+  {% csrf_token %}
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Name</span>
     </div>
+    {% render_field form.name class+="form-control" %}
+    <div class="input-group-prepend">
+      <span class="input-group-text">Choice a teacher</span>
+    </div>
+    {% render_field form.add_teacher %}
   </div>
-</div>
+
+  <button class="btn btn-primary">Send</button>
+  <a href="{% url 'students_list' %}" class="btn btn-primary" role="button">
+    Back
+  </a>
+</form>
 
 {% endblock %}

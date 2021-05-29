@@ -26,10 +26,6 @@
             <form method="POST" action="{% url 'students_delete' pk=student.pk %}" style="display: inline;">{% csrf_token %}
               <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-<!--            <a href="{% url 'students_delete' pk=student.pk %}"-->
-<!--              class="btn btn-danger" data-method="post">{% csrf_token %}-->
-<!--                Delete-->
-<!--            </a>-->
           </td>
         </tr>
       {% endfor %}
