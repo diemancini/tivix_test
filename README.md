@@ -1,6 +1,6 @@
 # Tivix Test
 
-A Django and frontend (Quasar) test to Tivix.
+A Django test to Tivix.
 
 ## Instalation
 
