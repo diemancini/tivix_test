@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">List of Students</h5>
+          <p class="card-text">
+            Click on button below to access the list of <code>Students</code>.
+          </p>
+          <a href="{% url 'students_list' %}"
+             class="btn btn-primary">
+            List Students
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">List of Teachers</h5>
+          <p class="card-text">
+            Click on button below to access the list of <code>Teachers</code>.
+          </p>
+          <a href="{% url 'teachers_list' %}"
+             class="btn btn-primary">
+             List Teachers
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

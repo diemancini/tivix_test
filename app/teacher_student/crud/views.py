@@ -1,11 +1,24 @@
 from django.shortcuts import render
 from django.core import serializers
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .forms import StudentsForm, TeachersForm, StudentsAddForm, TeachersAddForm
 from .models import Students, Teachers
 from typing import Union
 import json
+
+@csrf_exempt
+def home(request: csrf_exempt) -> render:
+    try:
+        if request.method == "GET":
+            return render(request, 'base/index.html')
+        else:
+            return render(request, 'base/index.html')
+
+    except Exception as e:
+        raise e
+
+        return render(request, 'base/index.html')
 
 
 @csrf_exempt

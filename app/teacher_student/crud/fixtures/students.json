@@ -1,0 +1,47 @@
+[
+{
+  "model": "crud.students",
+  "pk": 1,
+  "fields": {
+    "name": "Enzo",
+    "teachers": [
+      1
+    ],
+    "stars": [
+      1
+    ]
+  }
+},
+{
+  "model": "crud.students",
+  "pk": 2,
+  "fields": {
+    "name": "Pa\u00e7oca",
+    "teachers": [
+      2
+    ],
+    "stars": []
+  }
+},
+{
+  "model": "crud.students",
+  "pk": 3,
+  "fields": {
+    "name": "Heleninhas",
+    "teachers": [
+      1,
+      2
+    ],
+    "stars": []
+  }
+},
+{
+  "model": "crud.students",
+  "pk": 4,
+  "fields": {
+    "name": "Bolinha",
+    "teachers": [],
+    "stars": []
+  }
+}
+]

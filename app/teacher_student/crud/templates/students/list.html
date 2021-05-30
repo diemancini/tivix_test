@@ -36,9 +36,13 @@
     <h5>There is no <code>Students</code> subscribed yet.</h5>
   </div>
 {% endif %}
+
 <div class="text-right">
     <a href="{% url 'students_add' %}" class="btn btn-primary">
       Subscribe Student
+    </a>
+    <a href="{% url 'home' %}" class="btn btn-primary">
+      Back
     </a>
 </div>
 

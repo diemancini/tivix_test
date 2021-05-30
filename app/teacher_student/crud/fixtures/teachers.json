@@ -1,0 +1,16 @@
+[
+{
+  "model": "crud.teachers",
+  "pk": 1,
+  "fields": {
+    "name": "Diego M Mancini"
+  }
+},
+{
+  "model": "crud.teachers",
+  "pk": 2,
+  "fields": {
+    "name": "Luciana Agnoleto"
+  }
+}
+]
